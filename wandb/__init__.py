@@ -40,6 +40,8 @@ from wandb import util
 
 # Move this (keras.__init__ expects it at top level)
 from wandb.data_types import Graph
+from wandb.artifacts import Artifact
+from wandb.run_manager import LaunchError, Process
 from wandb.data_types import Image
 from wandb.data_types import Video
 from wandb.data_types import Audio
@@ -57,6 +59,7 @@ from wandb import superagent
 #from wandb.core import *
 from wandb.viz import visualize
 from wandb import plots
+
 
 # Used to make sure we don't use some code in the incorrect process context
 _IS_INTERNAL_PROCESS = False

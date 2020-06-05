@@ -145,6 +145,44 @@ message StatsItem {
   string          value_json = 16;
 }
 
+message LogArtifactData {
+  required string               type = 1;
+  required string               name = 2;
+  required string               digest = 3;
+  optional string               metadata = 4;
+  repeated string               aliases = 5;
+  required ArtifactManifest     manifest = 6;
+}
+
+message ArtifactManifest {
+  required int32                    version = 1;
+  required string                   storage_policy = 2;
+  StoragePolicyConfig               storage_policy_config = 3;
+  repeated ArtifactManifestEntry    contents = 4;
+}
+
+message ArtifactManifestEntry {
+  required string                digest = 1;
+  optional string                ref = 2;
+  optional int64                 size = 3;
+  optional string                mimetype = 4;
+  repeated ExtraItem             extra = 16;
+}
+
+message ExtraItem {
+  string        key = 1;
+  string        value = 2;
+}
+
+message StoragePolicyConfig {
+  repeated      StoragePolicyConfigItem = 1;
+}
+
+message StoragePolicyConfigItem {
+  string            key = 1;
+  string            value = 2;
+}
+
 /*
  * ExitData: exit status of process
  */

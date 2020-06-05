@@ -401,6 +401,9 @@ class BackendSender(object):
         rec = self._make_record(files=files)
         self._queue_process(rec)
 
+    def send_log_artifact(self, log_dict):
+        pass
+
     def send_exit(self, exit_code):
         pass
 

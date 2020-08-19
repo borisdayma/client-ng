@@ -106,7 +106,7 @@ class Artifact(object):
         if self._final:
             raise ValueError("Can't add to finalized artifact.")
 
-    def new_file(self, name, mode='w'):
+    def new_file(self, name, mode="w"):
         self._ensure_can_add()
         path = os.path.join(self._artifact_dir.name, name.lstrip("/"))
         if os.path.exists(path):
